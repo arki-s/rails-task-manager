@@ -5,9 +5,8 @@ Rails.application.routes.draw do
   # root "articles#index"
   root 'tasks#home'
   resources :tasks do
-    resources :completes, only: [:create]
+    resources :completes, only: [:create, :update]
   end
-  resources :reviews, only: [:destroy]
 
   # get 'tasks', to: 'tasks#index'
   # get 'tasks/new', to: 'tasks#new', as: :new_task
