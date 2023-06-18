@@ -1,4 +1,4 @@
 class Complete < ApplicationRecord
   belongs_to :task
-  validates :date, uniqueness: true, presence: true
+  validates :date, presence: true
 end

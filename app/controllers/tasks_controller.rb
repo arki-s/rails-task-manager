@@ -15,6 +15,17 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(task_params)
     if @task.save
+      Complete.create!(task_id: @task.id, status: false, date: Date.today)
+    date = 1
+    30.times do
+    Complete.create!(task_id: @task.id, status: false, date: (Date.today + date))
+    date += 1
+    end
+    pastdate = -1
+    30.times do
+    Complete.create!(task_id: @task.id, status: false, date: (Date.today + pastdate))
+    pastdate -= 1
+    end
       redirect_to task_path(@task)
     else
       render :new, status: :unprocessable_entity
