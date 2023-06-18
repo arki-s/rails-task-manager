@@ -1,0 +1,17 @@
+<div class="container">
+  <h1><%= @task.title %></h1>
+  <p></p>
+  <h2><%= @task.details %></h2>
+  <p></p>
+  <% if @task.completed %>
+    <h3><%= "This task is completed! 🌟" %></h3>
+  <% else %>
+    <h3><%= "This task is not completed yet. 🤪" %></h3>
+  <% end %>
+  <p></p>
+  <div class="trash">
+    <%= link_to "", edit_task_path(@task), class:"fa-solid fa-pen p-2" %>
+    <%= link_to "", task_path(@task), data: {turbo_method: :delete, turbo_confirm: "Delete #{@task.title}?"}, class:"fa-solid fa-trash-can p-2" %>
+  </div>
+  <%= link_to "Back to List", tasks_path %>
+</div>

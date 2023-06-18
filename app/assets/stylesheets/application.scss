@@ -13,3 +13,60 @@
  *= require_tree .
  *= require_self
  */
+
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Varela+Round&display=swap');
+
+.container {
+  padding: 1rem;
+  text-align: center;
+  margin: auto;
+  width: 80vw;
+  height: 100vh;
+
+}
+
+.container-home {
+  padding: 1rem;
+  align-items: center;
+  text-align: center;
+  margin: auto;
+  width: 80vw;
+  height: 100vh;
+
+  h1 {
+    font-size: 60px;
+
+  }
+
+}
+
+h1,
+h2,
+h3 {
+  font-family: Josefin Sans;
+  font-weight: bold;
+}
+
+.trash {
+  font-size: 24px;
+}
+
+.each-titles a {
+  text-decoration: none;
+  font-size: 32px;
+  font-family: Josefin Sans;
+}
+
+textarea {
+  width: 200px;
+  height: 100px;
+}
+
+a {
+  text-decoration: none;
+  font-family: Josefin Sans;
+}
+
+body {
+  background: rgba(255, 160, 122, .7);
+}

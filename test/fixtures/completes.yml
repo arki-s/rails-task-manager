@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  status: false
+  date: 2023-06-18
+
+two:
+  status: false
+  date: 2023-06-18
