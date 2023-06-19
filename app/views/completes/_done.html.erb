@@ -1,0 +1,5 @@
+<%= simple_form_for [@task, complete] do |f| %>
+  <%= f.input :date, value: Date.today, as: :hidden %>
+  <%= f.check_box :status, as: :boolean, checked: true, as: :hidden %>
+  <%= f.submit "Submit!",class:"btn btn-primary" %>
+<% end %>

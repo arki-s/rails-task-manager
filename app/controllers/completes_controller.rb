@@ -21,6 +21,7 @@ class CompletesController < ApplicationController
   def update
     @complete = Complete.find(params[:id])
     @complete.update(complete_params)
+    redirect_to task_path(@complete.task_id)
   end
 
 private

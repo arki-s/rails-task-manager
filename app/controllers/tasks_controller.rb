@@ -6,6 +6,7 @@ class TasksController < ApplicationController
 
   def show
     @task = Task.find(params[:id])
+    @complete = Complete.find_by(task_id: @task)
   end
 
   def new
@@ -53,4 +54,5 @@ class TasksController < ApplicationController
   def task_params
     params.require(:task).permit(:title, :details, :completed)
   end
+
 end
