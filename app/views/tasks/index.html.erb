@@ -1,5 +1,5 @@
 <div class="container">
-  <h1>My daily tasks</h1>
+  <h1>Your daily tasks</h1>
   <p></p>
   <% @tasks.each do |task| %>
     <div class="each-titles">
@@ -7,7 +7,7 @@
     </div>
     <p></p>
   <% end %>
-  <%= link_to "Add new task", new_task_path, class:"btn btn-primary"%>
+  <%= link_to "Create new task", new_task_path, class:"btn btn-primary"%>
   <p></p>
   <%= link_to "Home", root_path %>
 </div>

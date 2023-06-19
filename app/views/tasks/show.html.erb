@@ -1,7 +1,7 @@
 <div class="container">
   <h1><%= @task.title %></h1>
   <p></p>
-  <h2><%= @task.details %></h2>
+  <h3><%= @task.details %></h3>
   <p></p>
   <% if @task.completes.find_by(date: Date.today).status == false %>
     <h2>Done today?</h2>
@@ -9,25 +9,18 @@
   <% elsif @task.completes.find_by(date: Date.today).status == true %>
     <h2>Great! Already done today!</h2>
   <% elsif @task.completes.find_by(date: Date.today).nil? %>
-    <h2>This task has been created for over 30 days. If you want to keep a new record, please create a new task.</h2>
+    <h2>This task has been created for over 30 days. If you want to keep a new record, please create a new task!</h2>
   <% end %>
-  <%# <% end %>
+  <p><%= @task.completes.first.date%> ~ <%= @task.completes.last.date%></p>
   <div class="checks">
     <% @task.completes.each do |complete| %>
       <% if complete.status == true %>
-        <%# <%= complete.date %>
         <div class="check-done"></div>
       <% else %>
-        <%# <%= complete.date %>
         <div class="check-none"></div>
       <% end %>
     <% end %>
   </div>
-  <%# <% if @task.completed %>
-  <%# <h3><%= "This task is completed! 🌟" %>
-  <%# <% else %>
-  <%# <h3><%= "This task is not completed yet. 🤪" %>
-  <%# <% end %>
   <p></p>
   <div class="trash">
     <%= link_to "", edit_task_path(@task), class:"fa-solid fa-pen p-2" %>
