@@ -6,7 +6,9 @@ class TasksController < ApplicationController
 
   def show
     @task = Task.find(params[:id])
-    @complete = Complete.find_by(task_id: @task)
+    @completes = Complete.where(task_id: @task)
+    today = Date.today
+    @complete = @completes.find_by(date: today)
   end
 
   def new
