@@ -14,7 +14,7 @@
   <p></p>
   <p><%= @task.completes.first.date%> ~ <%= @task.completes.last.date%></p>
   <div class="checks">
-    <% @task.completes.each do |complete| %>
+    <% @task.completes.sort_by { |complete| complete.date}.each do |complete| %>
       <% if complete.status == true %>
         <div class="check-done"></div>
       <% else %>
