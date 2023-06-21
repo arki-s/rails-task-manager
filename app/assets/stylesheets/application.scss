@@ -17,11 +17,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Bungee&family=Josefin+Sans&family=Press+Start+2P&family=Varela+Round&display=swap');
 
 .container {
+  border: 1px solid greenyellow;
+  border-radius: 24px;
   padding: 1rem;
   text-align: center;
-  margin: auto;
+  margin-top: 1rem;
+  margin-right: auto;
+  margin-left: auto;
   width: 80vw;
-  height: 100vh;
 
   h1 {
     font-family: Bungee;
@@ -30,12 +33,15 @@
 }
 
 .container-home {
+  border: 1px solid greenyellow;
+  border-radius: 24px;
   padding: 1rem;
   align-items: center;
   text-align: center;
-  margin: auto;
+  margin-top: 1rem;
+  margin-right: auto;
+  margin-left: auto;
   width: 80vw;
-  height: 100vh;
 
   h1 {
     font-size: 50px;
