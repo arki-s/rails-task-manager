@@ -1,11 +1,13 @@
 <div class="container">
   <h1>Your daily tasks</h1>
   <p></p>
-  <% @tasks.each do |task| %>
-    <div class="each-titles">
-      <%= link_to task.title, task_path(task) %>
-    </div>
-    <p></p>
+  <% if @tasks %>
+    <% @tasks.each do |task| %>
+      <div class="each-titles">
+        <%= link_to task.title, task_path(task) %>
+      </div>
+      <p></p>
+    <% end %>
   <% end %>
   <%= link_to "Create new task", new_task_path, class:"btn btn-danger"%>
   <p></p>
