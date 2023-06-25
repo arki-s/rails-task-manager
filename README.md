@@ -3,7 +3,7 @@
 This app can manage the tasks you want to do continuously for 30 days.
 Perfect for when you want to do a squat challenge, for example.
 
-App home: https://WHATEVER.herokuapp.com
+App home: https://thirtydaystaskmanager-d621a4f87c1d.herokuapp.com/
 
 
 ## Getting Started
@@ -12,10 +12,6 @@ App home: https://WHATEVER.herokuapp.com
 Install gems
 ```
 bundle install
-```
-Install JS packages
-```
-yarn install
 ```
 
 ### DB Setup
@@ -32,11 +28,6 @@ rails s
 
 ## Built With
 - [Rails 7](https://guides.rubyonrails.org/) - Backend / Front-end
-- [Stimulus JS](https://stimulus.hotwired.dev/) - Front-end JS
 - [Heroku](https://heroku.com/) - Deployment
 - [PostgreSQL](https://www.postgresql.org/) - Database
 - [Bootstrap](https://getbootstrap.com/) — Styling
-- [Figma](https://www.figma.com) — Prototyping
-
-## License
-This project is licensed under the MIT License
