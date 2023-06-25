@@ -6,12 +6,16 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-puts "cleaning all tasks..."
+puts "cleaning all users and tasks..."
 
+User.destroy_all
 Task.destroy_all
 
-# Task.create(title: "Coding", details: "keep learning")
-# Task.create(title: "Reading books", details: "at least 30 minutes!")
-# Task.create(title: "Squat", details: "at least 50 times!")
-# Task.create(title: "Walking", details: "at least 30 minutes!")
-# Task.create(title: "Meditation", details: "at least 10 minutes!")
+test1 = User.create!(email: "test1@test.com", password:"123456")
+puts "created test1 user"
+
+test2 = User.create!(email: "test2@test.com", password:"123456")
+puts "created test2 user"
+
+test3 = User.create!(email: "test3@test.com", password:"123456")
+puts "created test3 user"

@@ -1,5 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Bungee&family=Josefin+Sans&family=Press+Start+2P&family=Varela+Round&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Belanosima&family=Bungee&family=Josefin+Sans&family=Roboto+Mono&display=swap');
 
-$headers-font: 'Bungee', sans-serif;
-$sub-headers-font: 'Josefin Sans', sans-serif;
-$body-font: 'Josefin Sans', sans-serif;
+$title-font : 'Bungee',
+'Belanosima';
+$headers-font: 'Bungee', 'Belanosima';
+$sub-headers-font: 'Josefin Sans', 'Roboto Mono';
+$body-font: 'Josefin Sans', 'Roboto Mono';
