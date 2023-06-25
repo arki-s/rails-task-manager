@@ -13,8 +13,18 @@
  *= require_tree .
  *= require_self
  */
+@import "index";
 
-@import url('https://fonts.googleapis.com/css2?family=Bungee&family=Josefin+Sans&family=Press+Start+2P&family=Varela+Round&display=swap');
+h1 {
+  font-family: $headers-font;
+  font-weight: bold;
+}
+
+h2,
+h3 {
+  font-family: $sub-headers-font;
+  font-weight: bold;
+}
 
 .container {
   border: 1px solid greenyellow;
@@ -26,9 +36,9 @@
   margin-left: auto;
   width: 80vw;
 
-  h1 {
-    font-family: Bungee;
-  }
+  // h1 {
+  //   font-family: $headers-font;
+  // }
 
 }
 
@@ -43,19 +53,14 @@
   margin-left: auto;
   width: 80vw;
 
-  h1 {
-    font-size: 50px;
-    font-family: Bungee;
-  }
+  // h1 {
+  //   font-size: 50px;
+  //   font-family: $headers-font;
+  // }
 
 }
 
-h1,
-h2,
-h3 {
-  font-family: Josefin Sans;
-  font-weight: bold;
-}
+
 
 .trash {
   font-size: 24px;
@@ -64,7 +69,7 @@ h3 {
 .each-titles a {
   text-decoration: none;
   font-size: 32px;
-  font-family: Josefin Sans;
+  font-family: $sub-headers-font;
 }
 
 textarea {
@@ -74,11 +79,7 @@ textarea {
 
 a {
   text-decoration: none;
-  font-family: Josefin Sans;
-}
-
-body {
-  // background: rgba(255, 160, 122, .7);
+  font-family: $sub-headers-font;
 }
 
 .checks {

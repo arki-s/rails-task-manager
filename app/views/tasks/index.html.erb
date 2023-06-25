@@ -1,8 +1,8 @@
 <div class="container">
   <h1>Your daily tasks</h1>
   <p></p>
-  <% if @tasks.count >= 1 %>
-    <% @tasks.each do |task| %>
+  <% if current_user.tasks.count >= 1 %>
+    <% current_user.tasks.each do |task| %>
       <div class="each-titles">
         <%= link_to task.title, task_path(task) %>
       </div>

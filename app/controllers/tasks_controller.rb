@@ -1,4 +1,8 @@
 class TasksController < ApplicationController
+  skip_before_action :authenticate_user!, only: :home
+
+  def home
+  end
 
   def index
     @tasks = Task.all
@@ -17,6 +21,7 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.new(task_params)
+    @task.user = current_user
     if @task.save
       Complete.create!(task_id: @task.id, status: false, date: Date.today)
     date = 1
@@ -49,7 +54,7 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:title, :details, :completed)
+    params.require(:task).permit(:title, :details, :completed, :user)
   end
 
 end
