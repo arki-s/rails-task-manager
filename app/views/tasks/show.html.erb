@@ -1,39 +1,44 @@
 <div class="container">
-  <h1><%= @task.title %></h1>
-  <p></p>
-  <h3><%= @task.details %></h3>
-  <p></p>
-  <% if @task.completes.find_by(date: Date.today).status == false %>
-    <h2>Done today?</h2>
-    <%= render 'completes/done', complete: @complete %>
-  <% elsif @task.completes.find_by(date: Date.today).status == true %>
-    <h2 style="color:green;">Great! Already done today!</h2>
-  <% elsif @task.completes.find_by(date: Date.today).nil? %>
-    <h2>This task has been created for over 30 days. If you want to keep a new record, please create a new task!</h2>
-  <% end %>
-  <p></p>
-  <p><%= @task.completes.first.date%> ~ <%= @task.completes.last.date%></p>
-  <div class="checks">
-    <% @task.completes.sort_by { |complete| complete.date}.each do |complete| %>
-      <% if complete.status == true %>
-        <div class="check-done"></div>
-      <% else %>
-        <div class="check-none"></div>
-      <% end %>
+  <% if @task.user == current_user %>
+    <h1><%= @task.title %></h1>
+    <p></p>
+    <h3><%= @task.details %></h3>
+    <p></p>
+    <% if @task.completes.find_by(date: Date.today).status == false %>
+      <h2>Done today?</h2>
+      <%= render 'completes/done', complete: @complete %>
+    <% elsif @task.completes.find_by(date: Date.today).status == true %>
+      <h2 style="color:green;">Great! Already done today!</h2>
+    <% elsif @task.completes.find_by(date: Date.today).nil? %>
+      <h2>This task has been created for over 30 days. If you want to keep a new record, please create a new task!</h2>
     <% end %>
-  </div>
-  <p></p>
-  <% count = 0 %>
-  <% @task.completes.each { |complete| count += 1 if complete.status == true }%>
-  <% if @task.completes.count == count %>
-    <h2 style="color:green;">Awesome!! You've done your daily task perfectly!!!</h2>
+    <p></p>
+    <p><%= @task.completes.first.date%> ~ <%= @task.completes.last.date%></p>
+    <div class="checks">
+      <% @task.completes.sort_by { |complete| complete.date}.each do |complete| %>
+        <% if complete.status == true %>
+          <div class="check-done"></div>
+        <% else %>
+          <div class="check-none"></div>
+        <% end %>
+      <% end %>
+    </div>
+    <p></p>
+    <% count = 0 %>
+    <% @task.completes.each { |complete| count += 1 if complete.status == true }%>
+    <% if @task.completes.count == count %>
+      <h2 style="color:green;">Awesome!! You've done your daily task perfectly!!!</h2>
+    <% else %>
+      <h2>Your completion rate is <%= ((count / @task.completes.count.to_f) * 100).round(1) %> %</h2>
+    <% end %>
+    <p></p>
+    <div class="trash">
+      <%= link_to "", edit_task_path(@task), class:"fa-solid fa-pen p-2",style:"color:#dc3545;" %>
+      <%= link_to "", task_path(@task), data: {turbo_method: :delete, turbo_confirm: "Delete #{@task.title}?"}, class:"fa-solid fa-trash-can p-2",style:"color:#dc3545;" %>
+    </div>
+    <%= link_to "Back to List", tasks_path %>
   <% else %>
-    <h2>Your completion rate is <%= ((count / @task.completes.count.to_f) * 100).round(1) %> %</h2>
+    <h1>You are not the owner of this task.</h1>
+    <%= link_to "Back to List", tasks_path %>
   <% end %>
-  <p></p>
-  <div class="trash">
-    <%= link_to "", edit_task_path(@task), class:"fa-solid fa-pen p-2",style:"color:#dc3545;" %>
-    <%= link_to "", task_path(@task), data: {turbo_method: :delete, turbo_confirm: "Delete #{@task.title}?"}, class:"fa-solid fa-trash-can p-2",style:"color:#dc3545;" %>
-  </div>
-  <%= link_to "Back to List", tasks_path %>
 </div>
