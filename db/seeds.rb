@@ -23,7 +23,7 @@ Complete.create!(task_id: task1.id, status: true, date: Date.today)
       date += 1
     end
 
-puts "created sample task1 for test1 user"
+puts "created sample task1 for test user"
 
 task2 = Task.create!(title: "Reading Books", details: "at least 30 minutes", user_id: testuser.id)
 Complete.create!(task_id: task2.id, status: true, date: Date.today)
@@ -33,4 +33,14 @@ Complete.create!(task_id: task2.id, status: true, date: Date.today)
       date += 1
     end
 
-puts "created sample task2 for test1 user"
+puts "created sample task2 for test user"
+
+task3 = Task.create!(title: "Running", details: "at least 30 minutes", user_id: testuser.id)
+Complete.create!(task_id: task3.id, status: false, date: Date.today)
+    date = 1
+    30.times do
+      Complete.create!(task_id: task2.id, status: false, date: (Date.today + date))
+      date += 1
+    end
+
+puts "created sample task3 for test user"
