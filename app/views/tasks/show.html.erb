@@ -4,13 +4,13 @@
     <p></p>
     <h3><%= @task.details %></h3>
     <p></p>
-    <% if @task.completes.find_by(date: Date.today).status == false %>
+    <% if @task.completes.find_by(date: Date.today).nil? %>
+      <h2>This task has been created for over 30 days. If you want to keep a new record, please create a new task!</h2>
+    <% elsif @task.completes.find_by(date: Date.today).status == false %>
       <h2>Done today?</h2>
       <%= render 'completes/done', complete: @complete %>
     <% elsif @task.completes.find_by(date: Date.today).status == true %>
       <h2 style="color:green;">Great! Already done today!</h2>
-    <% elsif @task.completes.find_by(date: Date.today).nil? %>
-      <h2>This task has been created for over 30 days. If you want to keep a new record, please create a new task!</h2>
     <% end %>
     <p></p>
     <p><%= @task.completes.first.date%> ~ <%= @task.completes.last.date%></p>
