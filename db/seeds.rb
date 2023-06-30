@@ -5,17 +5,32 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+status = [true, false]
 
 puts "cleaning all users and tasks..."
 
 User.destroy_all
 Task.destroy_all
 
-test1 = User.create!(email: "test1@test.com", password:"123456")
-puts "created test1 user"
+testuser = User.create!(email: "test1@test.com", password:"123456")
+puts "created test user"
 
-test2 = User.create!(email: "test2@test.com", password:"123456")
-puts "created test2 user"
+task1 = Task.create!(title: "Coding", details: "Keep learning!", user_id: testuser.id)
+Complete.create!(task_id: task1.id, status: true, date: Date.today)
+    date = 1
+    30.times do
+      Complete.create!(task_id: task1.id, status: true, date: (Date.todatestuserate))
+      date += 1
+    end
 
-test3 = User.create!(email: "test3@test.com", password:"123456")
-puts "created test3 user"
+puts "created sample task1 for test1 user"
+
+task2 = Task.create!(title: "Reading Books", details: "at least 30 minutes", user_id: testuser.id)
+Complete.create!(task_id: task2.id, status: true, date: Date.today)
+    date = 1
+    30.times do
+      Complete.create!(task_id: task2.id, status: status.sample, date: (Date.today + date))
+      date += 1
+    end
+
+puts "created sample task2 for test1 user"
